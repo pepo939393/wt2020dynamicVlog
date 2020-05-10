@@ -1,0 +1,193 @@
+body {
+  background: grey;
+  margin: 73px 0px 0px 0px;
+  font: 1em Verdana;
+  min-width: 960px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  color: black;
+  font-family: Arial;
+  text-shadow: 3px 3px 7px grey;
+}
+
+h2 {
+  text-align: left;
+  font-size: 1.7em;
+}
+
+header {
+  height: 73px;
+  position: fixed;
+  top: 0px;
+  background: grey;
+  width: 100%;
+}
+
+article {
+  text-align: center;
+  background: white;
+  padding: 30px 0px;
+  margin: 10px 10px;
+}
+
+article header {
+  width: 1em;
+  float: left;
+  position: static;
+  background: none;
+}
+
+article section {
+  /*width: 666ex;
+    float: left;*/
+  background: white;
+  border: 2px solid #006797;
+  box-shadow: 2px 2px 7px #1c2228;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  height: 40px;
+  color: white;
+  margin: 20px 0 0 30px;
+}
+
+#center {
+  margin: 0px auto;
+  width: 960px;
+}
+
+#formular {
+  border: 2px solid #000000;
+}
+
+#comments {
+  border: 1px solid #000000;
+}
+
+.center {
+  text-align: center;
+}
+
+.grid-container {
+  align-self: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  padding: 5px;
+}
+
+.cleaner {
+  clear: both;
+}
+
+.small {
+  font-size: 15px;
+}
+
+.opinionform :required {
+  border: black 2px solid;
+}
+/*
+.opinionform :optional{
+    border: yellow 2px solid;
+}
+*/
+.opinionform :valid {
+  border: green 2px solid;
+  /*background-color: yellow;*/
+}
+/*
+.opinionform :invalid{
+    border: red 2px solid;
+}
+*/
+
+opinionsContainer {
+  text-align: center;
+  background: white;
+  padding: 30px 0px;
+}
+/*MEDIA QUERIES*/
+/* For desktop: */
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .article {
+    background-size: 100% 100%;
+  }
+
+  .img {
+    background-size: 100% 100%;
+  }
+}
+
+/*MENU*/
+#menu {
+  width: 250px;
+  height: 60px;
+  float: left;
+  margin: 7px 0px 0px 20px;
+}
+
+/*ANIMACIA*/
+.animation {
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  animation-name: rectangle;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rectangle {
+  from {
+    background-color: #1c2228;
+  }
+  to {
+    background-color: #ffbb00;
+  }
+}

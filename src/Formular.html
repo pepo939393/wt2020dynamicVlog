@@ -1,0 +1,30 @@
+
+      <main>
+            <article>
+                <div id="center">
+                    <h1>FÃ³rum</h1>
+                    <form class="opinionform" id="form">
+                        <ul>
+                            <li><label for="name">Meno:</label><input type="text" id="name" name="name" required></li>
+                            <li><label for="email"> E-mail:</label></label> <input type="email" id="email" name="email" required></li>
+                            <li><label for="picture">URL obrazka:</label><input type="url" id="pictureurl" name="picture"></li>
+                            <li>Pohlavie:
+                                <label for="man">Muz</label><input type="radio" id="man" name ="sex">
+                                <label for="woman">Zena</label><input type="radio" id="woman" name ="sex">
+                            </li>
+                            <li><label for="agree">Suhlasim so spracovanim udajov:</label><input type="checkbox" id="agree" name="agree"></li>
+                            <li><label for="opinion">Nazor:</label><textarea id="opinon" name="opinion" required></textarea></li>
+                            <li><label for="keywords">Klucove slova:</label><input type="text" id="keywords" list="vulcanotype">
+                                <datalist id ="vulcanotype">
+                                    <option value="normal volcano">
+                                    <option value="water volcano">
+                                </datalist>
+                            </li>
+                            <li><input type="submit" id="submit"/> <input type="reset" id="reset"/> </li>
+                            <br>
+                        </ul>
+                    </form>
+                </div>
+            </article>
+      </main>
+<script src = "js/formStorage.js"></script>

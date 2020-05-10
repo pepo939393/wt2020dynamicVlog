@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sopky</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/print.css"/>
+
+    <style>
+        .sopka {
+            width: 540px;
+            height: 360px;
+            position: relative;
+            display: inline-block;
+            margin: 50px;
+        }
+        .sopka .img-top {
+            display: none;
+            position:absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+        .sopka:hover .img-top {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+     <header>
+        <div id="menu" class="animation" ><h1>Sopky</h1></div>
+        <nav>
+            <a href="index.html">Sopka</a>
+            <a href="Sopky.html">NajznamejÅ¡ie sopky</a>
+            <a href="Etna1.html">Etna</a>
+            <a href="Kilimandzaro.html">Kilimandzaro</a>
+            <a href="Popocatepetl.html">Popocatepetl</a>
+            <a href="Forum.html">FÃ³rum</a>
+        </nav>
+     </header>
+
+    <div class="cleaner"></div>
+                <div id="SignInButton" class="googleSign"></div>
+                <div class="cleaner"></div>
+                <div id="SignedIn" class="googleSign whitetext">Ste prihlÃ¡senÃ½ ako <span id="userName"></span></div>
+                <div class="cleaner"></div>
+                <button class="button googleSign" onclick="signOut()">OdhlÃ¡siÅ¥ sa</button>
+             <div class="cleaner"></div>
+
+    <main>
+        <article>
+            <div class= "center">
+                <h1>AkÃ© sÃº najznamejÅ¡ie sopky na svete?</h1>
+                    Etna (SicÃ­lia - Taliansko)<br>
+                    KilimandÅ¾Ã¡ro (TanzÃ¡nia)<br>
+                    PopocatÃ©petl (Mexiko)<br>
+                    SantorÃ­n (GrÃ©cko)<br>
+                    Stromboli (Taliansko)<br>
+                    Vezuv (Taliansko)<br>
+
+                <h3>PoslednÃ© erupcie a vÃ½Å¡Å¡ka tÃ½chto sopiek</h3>
+                <table style="width:100%">
+                        <tr>
+                            <th>AktÃ­vna sopka</th>
+                            <th>VÃ½Å¡Å¡ka</th>
+                            <th>PoslednÃ¡ erupcia</th>
+                        </tr>
+                        <tr>
+                            <td>Etna</td>
+                            <td>3350 m.n.m.</td>
+                            <td>marec 2017</td>
+                        </tr>
+                        <tr>
+                            <td>KilimandÅ¾Ã¡ro</td>
+                            <td>5895 m.n.m.</td>
+                            <td>pred 150000 aÅ¾ 200000 rokmi</td>
+                        </tr>
+                        <tr>
+                            <td>PopocatÃ©petl</td>
+                            <td>5426 m.n.m.</td>
+                            <td>2020</td>
+                        </tr>
+                        <tr>
+                            <td>SantorÃ­n</td>
+                            <td>556 m.n.m.</td>
+                            <td>1956</td>
+                        </tr>
+                        <tr>
+                            <td>Stromboli</td>
+                            <td>926 m.n.m.</td>
+                            <td>2007</td>
+                        </tr>
+                        <tr>
+                            <td>Vezuv</td>
+                            <td>1277 m.n.m.</td>
+                            <td>1944</td>
+                        </tr>
+                </table>
+
+                <!--
+                <div class="sopka">
+
+                    <img src="Pictures/sopkaMedium.jpg"
+
+                        srcset="Pictures/sopkaBig.jpg 138w,
+                                Pictures/sopkaSmall.jpg 255w,
+                                Pictures/sopkaMedium.jpg 500w"
+
+                        sizes="(min-width: 400px) 30vw, 50vw"
+
+                         title="sopka. sopka"
+                         alt="sopka"/>
+                 </div>
+                 -->
+
+                 <div class="sopka">
+                    <img src="Pictures/sopkaMedium.jpg" alt="Sopka">
+                    <img src="Pictures/sopkaTrans.jpg" class="img-top" alt="Sopka">
+                </div>
+             </div>
+        </article>
+    </main>
+
+    <footer>
+        <div>28.2.2020</div>
+        <div>Peter PekarÄÃ­k</div>
+        <div>peto.pekarcik7@gmail.com</div>
+    </footer>
+
+    <script src = "js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoznam Älankov</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/print.css"/>
+</head>
+
+<body>
+    <header>
+        <div id="menu" class="animation" ><h1>Sopky</h1></div>
+        <nav>
+            <a href="#index">Sopka</a>
+            <a href="#articles/0">Clanky</a>
+            <a href="#forum">FÃ³rum</a>
+            <a href="#artInsert">Vloz clanok</a>
+        </nav>
+    </header>
+
+    <div class="cleaner"></div>
+                <div id="SignInButton" class="googleSign"></div>
+                <div class="cleaner"></div>
+                <div id="SignedIn" class="googleSign whitetext">Ste prihlÃ¡senÃ½ ako <span id="userName"></span></div>
+                <div class="cleaner"></div>
+                <button class="button googleSign" onclick="signOut()">OdhlÃ¡siÅ¥ sa</button>
+      <div class="cleaner"></div>
+
+    <main id="router-view">
+    </main>
+
+
+    <footer>
+        <div>28.2.2020</div>
+        <div>Peter PekarÄÃ­k</div>
+        <div><a href="mailto:peto.pekarcik7gmail.com?Subject=Reakcia%20na%20Vas%20blog">peto.pekarcik7@gmail.com</a> </div>
+    </footer>
+
+    <script type="text/template" id="template-welcome">
+        <article>
+                    <div id="center">
+                        <h1>Äo to je sopka?</h1>
+
+                        <div>
+                            Sopka alebo vulkÃ¡n je geomorfologickÃ½ Ãºtvar vytvorenÃ½ magmou vystupujÃºcou na zemskÃ½ povrch (kde sa nazÃ½va lÃ¡va), prÃ­padne pod vodou alebo Ä¾adom. Na Zemi sa sopky vyskytujÃº pozdÄºÅ¾ hranÃ­c tektonickÃ½ch platnÃ­ a v takzvanÃ½ch horÃºcich Å¡kvrnÃ¡ch. NÃ¡zov vulkÃ¡n je odvodenÃ½ od nÃ¡zvu sopky Vulcano v Tyrrhenskom mori, prenesene od rÃ­mskeho boha VulkÃ¡na. Veda, skÃºmajÃºca sopeÄnÃº ÄinnosÅ¥, sa nazÃ½va vulkanolÃ³gia.
+                            InÃ© formy sÃº bahnovÃ© sopky (tieto, aÅ¾ na pÃ¡r vÃ½nimiek nesÃºvisia so sopeÄnou ÄinnosÅ¥ou) a Ä¾adovÃ© sopky (vyskytujÃº sa na niektorÃ½ch mesiacoch slneÄnej sÃºstavy â Europa, Enceladus, Triton, Titan).
+                        </div>
+
+                        <div>
+                            Ahoj, volÃ¡m sa Peter, som zo SpiÅ¡skej Novej Vsi a som Å¡tudentom informatiky na Technickej univerzite v KoÅ¡iciach. Jednou z mojÃ­ch zÃ¡Ä¾ub sÃº prÃ¡ve sopky.
+                        </div>
+                    </div>
+        </article>
+    </script>
+
+    <script id="template-articles" type="text/template">
+        {{#articleList}}
+        <article class="article">
+            <h2><a href="{{detailLink}}">{{title}}</a></h2>
+            <p>
+            by {{author}}
+            </p>
+            <p>
+            {{{content}}}
+            </p>
+        </article>
+        {{/articleList}}
+         {{page}}
+         <a href="#articles/{{previousPage}}">Previous</a>
+         <a href="#articles/{{nextPage}}">Next</a>
+    </script>
+
+
+
+    <script id="template-articles-error" type="text/template">
+
+        <article>
+            <h2>Articles acquisition failed</h2>
+            <p>
+                {{errMessage}}
+            </p>
+        </article>
+
+    </script>
+
+    <script id="mTmplOneOpinion" type="text/template">
+                        <article>
+                             <div id="center">
+                                <div id = "comments">
+                                    <h3>{{name}} </h3>
+                                    <p>{{createdDate}}</p>
+                                    <p>{{comment}}</p>
+                                    <p>{{willReturnMessage}}</p>
+                                </div>
+                             </div>
+                        </article>
+               </script>
+
+
+    <script id="template-forum" type="text/template">
+        <main>
+                <article id="articleOpinionForm">
+                    <div id="center">
+                        <div id="formular">
+                            <h1>FÃ³rum</h1>
+                            <form class="opinionForm" id="opinionform">
+                                <label for="name"><h3>Meno:</h3></label><input type="text" id="name" name="name" required><br>
+                                <label for="opinion"><h3>NÃ¡zor:</h3></label><textarea name ="comment" id="opinion" required></textarea><br><br>
+                                <input type="submit" id="submit"/><br><br><input type="reset" id="reset"/>
+                            </form>
+                            <br>
+                        </div>
+                    </div>
+                </article>
+
+                <article  id="artOpinions">
+                    <div id="center">
+                        <div id = "formular">
+                            <h1>Visitor Opinions</h1>
+                            <div id="opinionsContainer"></div>
+                        </div>
+                    </div>
+                    <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+                </article>
+          </main>
+
+    </script>
+
+    <script id="template-article-form" type="text/template">
+        <article>
+
+            <h2>{{formTitle}}</h2>
+            <br><br>
+
+            <form id="articleForm" onsubmit="return {{formSubmitCall}}">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" value="{{author}}" size="50" title="Article author, max. length 100 characters." maxlength="100" placeholder="e.g. JÃ¡n Trieska" />
+                <br>
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" value="{{title}}" size="50"  maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
+                <br>
+                <label for="imageLink">Image (url):</label>
+                <input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50" title="Image URL, max. length 100 characters." maxlength="100"/>
+                <br>
+                <label></label><button type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+
+                <fieldset class="added hiddenElm" id="fsetFileUpload">
+                    <legend>Image Upload</legend>
+                    <input type="file" id="flElm" name="file" accept="image/jpeg, image/png"/>
+                    <br />
+                    <button type="button" id="btFileUpload" onclick="uploadImg('{{urlBase}}')">Send image to server</button>
+                    <button type="button" id="btCancelFileUpload" onclick="cancelFileUpload()">Cancel uploading</button>
+                </fieldset>
+
+
+                <br>
+                <label for="content">Article content:</label>
+                <textarea
+                        name="content" id="content" spellcheck="true" lang="sk"
+                        cols="50" rows="20" required
+                        title="Article content, mandatory item, can be plain text or in HTML.">{{content}}</textarea>
+                <br>
+                <label for="tags">Keywords:</label>
+                <input  type="text" name="tags" id="tags" value="{{tags}}" size="50"
+                        title="Keyword list, comma separated." placeholder="e.g. village, drama" />
+
+                <br>
+                <br>
+                <button type="reset">
+                    Reset Form
+                </button>
+                <button type="submit">
+                    {{submitBtTitle}}
+                </button>
+
+            </form>
+
+        </article>
+
+        <footer>
+            <a href="{{backLink}}" class="linkAsButton"><< Back</a>
+            <a href="#menuTitle" class="linkAsButton">Up to the menu</a>
+        </footer>
+    </script>
+
+    <script id="template-article" type="text/template">
+        <article>
+            <h3>{{title}}</h3>
+            <p>
+                by {{author}}
+            </p>
+            {{#imageLink}}
+            <figure>
+                <img src="{{imageLink}}" alt="article figure" />
+            </figure>
+            {{/imageLink}}
+            <div>{{{content}}}</div>
+            <p>
+                Keywords:
+                {{tags}}
+            </p>
+            <section>
+                Comments:
+                {{#comments}}
+                <p>
+                {{author}}:{{text}}
+                 </p>
+                 {{/comments}}
+                  <button id="addComment">Pridaj komentar</button>
+                  <form id="comment_form" onsubmit="return {{insertCommentCall}}">
+                        <ul>
+                            <li><label for="name">Meno:</label><input type="text" id="name" name="name" required></li>
+                            <li><label for="email"> KomentÃ¡r:</label></label> <input type="text" id="comment" name="comment" required></li>
+                        </ul>
+                        <button id="addComment" type="submit">OdoÅ¡li komentar</button>
+                  </form>
+
+            </section>
+        </article>
+
+        <footer>
+            <a href="{{backLink}}" class="linkAsButton"><< Back</a>
+            <a href="{{editLink}}" class="linkAsButton">Edit</a>
+            <a href="{{deleteLink}}" class="linkAsButton">Delete</a>
+            <a href="#menuTitle" class="linkAsButton">Up to the menu</a>
+        </footer>
+
+    </script>
+
+    <script src="js/mustache.min.js"></script>
+    <script type="module" src="js/routerInit.js"></script>
+    <script src="js/handleArticleForms.js"></script>
+    <script src="js/82GoogleAccessBetter.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=startGSingIn" async defer></script>
+
+
+    </body>
+</html>
+</body>

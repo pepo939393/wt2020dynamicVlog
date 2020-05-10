@@ -1,0 +1,96 @@
+@media print {
+  /*nastavenie sirky obsahu, znafunkcenie floats a margins*/
+  #content,
+  #page {
+    width: 100%;
+    margin: 0;
+    float: none;
+  }
+
+  /*nastavenie odsadenia od okraja - margin*/
+  @page {
+    margin: 2cm;
+  }
+
+  /*nastavenia stylu pisma pre tlac*/
+  body {
+    font: 13pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    background: #fff !important;
+    color: #000;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-size: 14pt;
+    margin-top: 25px;
+  }
+
+  /*upravenie linkov*/
+  a:link,
+  a:visited,
+  a {
+    background: transparent;
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+  }
+
+  a {
+    page-break-inside: avoid;
+  }
+
+  article a[href^="#"]:after {
+    content: "";
+  }
+
+  a:not(:local-link):after {
+    content: " < " attr(href) "> ";
+  }
+
+  /*skrytie nepotrebnych elementov ako menu, slidebary, heading, greadcrums, footer...*/
+  #header-widgets,
+  nav,
+  aside.mashsb-container,
+  .sidebar,
+  .mashshare-top,
+  .mashshare-bottom,
+  .content-ads,
+  .make-comment,
+  .author-bio,
+  .heading,
+  .related-posts,
+  #decomments-form-add-comment,
+  #breadcrumbs,
+  footer,
+  .post-byline,
+  .meta-single,
+  .site-title img,
+  .post-tags,
+  .readability {
+    display: none !important;
+  }
+
+  /*skrytie videi a ostatnych iframeov*/
+  .entry iframe,
+  ins {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    line-height: 0pt !important;
+    white-space: nowrap;
+  }
+  .embed-youtube,
+  .embed-responsive {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+  }
+}

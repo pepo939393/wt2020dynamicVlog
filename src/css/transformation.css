@@ -1,0 +1,13 @@
+body {
+  font-size: 100%;
+}
+
+p:hover {
+  color: #5aff55;
+  background-color: #0f0f0f;
+}
+
+p {
+  max-width: 18em;
+  padding: 0.5em;
+}

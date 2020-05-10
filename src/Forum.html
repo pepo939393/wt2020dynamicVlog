@@ -1,0 +1,48 @@
+
+  <main>
+        <article id="articleOpinionForm">
+            <div id="center">
+                <div id="formular">
+                    <h1>FÃ³rum</h1>
+                    <form class="opinionForm" id="opinionform">
+                        <label for="name"><h3>Meno:</h3></label><input type="text" id="name" name="name" required><br>
+                        <label for="opinion"><h3>NÃ¡zor:</h3></label><textarea name ="comment" id="opinion" required></textarea><br><br>
+                        <input type="submit" id="submit"/><br><br><input type="reset" id="reset"/>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </article>
+
+        <article  id="artOpinions">
+            <div id="center">
+                <div id = "formular">
+                    <h1>Visitor Opinions</h1>
+                    <div id="opinionsContainer"></div>
+                </div>
+            </div>
+            <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+        </article>
+  </main>
+
+   <script id="mTmplOneOpinion" type="text/template">
+            <article>
+                 <div id="center">
+                    <div id = "comments">
+                        <h3>{{name}} </h3>
+                        <p>{{createdDate}}</p>
+                        <p>{{comment}}</p>
+                        <p>{{willReturnMessage}}</p>
+                    </div>
+                 </div>
+            </article>
+   </script>
+    <!--Doplnil si-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+        integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
+        crossorigin="anonymous">
+    </script>
+
+
+    <!--This time, we put the JavaScript code into a separate file (as it should be always)-->
+    <script src="js/formStorage.js"></script>
